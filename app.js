@@ -89,7 +89,9 @@ class ScoreTracker {
     calculateRowSum(rowData) {
         return rowData.columns.reduce((sum, column) => sum + column.score, 0);
     }
-    
+
+
+
     getCurrentInputValue(rowId, columnIndex) {
         const rowElement = document.getElementById(rowId);
         if (!rowElement) return '';
@@ -132,6 +134,10 @@ class ScoreTracker {
         // Add copy button
         const copyContainer = this.createCopyContainer(rowData.id);
         rowElement.appendChild(copyContainer);
+        
+        // Add minus all button
+        const minusAllContainer = this.createMinusAllContainer(rowData.id);
+        rowElement.appendChild(minusAllContainer);
         
         // Add remove button for non-first rows
         if (this.rows.length > 1) {
@@ -288,6 +294,66 @@ class ScoreTracker {
         document.body.removeChild(textArea);
     }
     
+    createMinusAllContainer(rowId) {
+        const minusAllContainer = document.createElement('div');
+        minusAllContainer.className = 'minus-all-container';
+        
+        // Create minus all button
+        const minusAllBtn = document.createElement('button');
+        minusAllBtn.type = 'button';
+        minusAllBtn.className = 'minus-all-btn';
+        minusAllBtn.innerHTML = '-1';
+        minusAllBtn.title = 'Decrease all scores by 1';
+        
+        minusAllBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log(`Minus all button clicked for ${rowId}`);
+            this.decreaseAllScores(rowId);
+        });
+        
+        minusAllContainer.appendChild(minusAllBtn);
+        
+        return minusAllContainer;
+    }
+    
+    decreaseAllScores(rowId) {
+        console.log(`Decreasing all scores by 1 for ${rowId}`);
+        const row = this.rows.find(r => r.id === rowId);
+        if (!row) {
+            console.error('Row not found for decrease all operation');
+            return;
+        }
+        
+        // Decrease each column score by 1 (allow negative scores)
+        for (let columnIndex = 0; columnIndex < row.columns.length; columnIndex++) {
+            const oldScore = row.columns[columnIndex].score;
+            const newScore = oldScore - 1; // Allow negative scores
+            row.columns[columnIndex].score = newScore;
+            
+            // Update the display
+            const scoreElement = document.getElementById(`score-${rowId}-${columnIndex}`);
+            if (scoreElement) {
+                scoreElement.textContent = newScore;
+                
+                // Add a subtle animation to show the change
+                scoreElement.style.transform = 'scale(1.1)';
+                scoreElement.style.transition = 'transform 150ms ease';
+                
+                setTimeout(() => {
+                    scoreElement.style.transform = 'scale(1)';
+                }, 150);
+            }
+            
+            console.log(`Column ${columnIndex} score changed from ${oldScore} to ${newScore}`);
+        }
+        
+        // Update the row sum
+        this.updateRowSum(rowId, true);
+        
+        console.log('All scores decreased by 1 successfully');
+    }
+    
     createColumn(rowId, columnIndex, columnData) {
         const columnElement = document.createElement('div');
         columnElement.className = 'grid-column';
@@ -361,10 +427,46 @@ class ScoreTracker {
         buttonsContainer.appendChild(incrementBtn);
         buttonsContainer.appendChild(decrementBtn);
         
+        // Create second row of buttons container
+        const buttonsContainer2 = document.createElement('div');
+        buttonsContainer2.className = 'score-buttons';
+        
+        // Create +4 button
+        const plus4Btn = document.createElement('button');
+        plus4Btn.type = 'button';
+        plus4Btn.className = 'score-btn score-btn--up';
+        plus4Btn.textContent = '+4';
+        plus4Btn.title = 'Increase score by 4';
+        
+        plus4Btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log(`+4 button clicked for ${rowId}-${columnIndex}`);
+            this.updateScore(rowId, columnIndex, 4);
+        });
+        
+        // Create +2 button
+        const plus2Btn = document.createElement('button');
+        plus2Btn.type = 'button';
+        plus2Btn.className = 'score-btn score-btn--up';
+        plus2Btn.textContent = '+2';
+        plus2Btn.title = 'Increase score by 2';
+        
+        plus2Btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log(`+2 button clicked for ${rowId}-${columnIndex}`);
+            this.updateScore(rowId, columnIndex, 2);
+        });
+        
+        buttonsContainer2.appendChild(plus4Btn);
+        buttonsContainer2.appendChild(plus2Btn);
+        
         // Assemble column
         columnElement.appendChild(textInput);
         columnElement.appendChild(scoreDisplay);
         columnElement.appendChild(buttonsContainer);
+        columnElement.appendChild(buttonsContainer2);
         
         return columnElement;
     }

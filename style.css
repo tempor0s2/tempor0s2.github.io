@@ -1119,6 +1119,12 @@ select.form-control {
         height: 36px;
         font-size: var(--font-size-base);
     }
+    
+    .minus-all-btn {
+        width: 36px;
+        height: 36px;
+        font-size: var(--font-size-xs);
+    }
 }
 
 @media (max-width: 768px) {
@@ -1172,6 +1178,12 @@ select.form-control {
         width: 32px;
         height: 32px;
         font-size: var(--font-size-sm);
+    }
+    
+    .minus-all-btn {
+        width: 32px;
+        height: 32px;
+        font-size: var(--font-size-xs);
     }
 }
 
@@ -1291,5 +1303,45 @@ select.form-control {
 }
 
 .copy-btn:active {
+    transform: scale(0.95);
+}
+
+.minus-all-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: var(--space-8);
+}
+
+.minus-all-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-error);
+    background-color: var(--color-surface);
+    color: var(--color-error);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    transition: all var(--duration-fast) var(--ease-standard);
+    flex-shrink: 0;
+}
+
+.minus-all-btn:hover {
+    background-color: var(--color-error);
+    color: var(--color-btn-primary-text);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+}
+
+.minus-all-btn:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+}
+
+.minus-all-btn:active {
     transform: scale(0.95);
 }
