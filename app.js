@@ -129,6 +129,10 @@ class ScoreTracker {
         const sumContainer = this.createRowSumContainer(rowData.id, rowData.sum);
         rowElement.appendChild(sumContainer);
         
+        // Add copy button
+        const copyContainer = this.createCopyContainer(rowData.id);
+        rowElement.appendChild(copyContainer);
+        
         // Add remove button for non-first rows
         if (this.rows.length > 1) {
             const removeContainer = document.createElement('div');
@@ -193,6 +197,95 @@ class ScoreTracker {
         sumContainer.appendChild(sumDisplay);
         
         return sumContainer;
+    }
+    
+    createCopyContainer(rowId) {
+        const copyContainer = document.createElement('div');
+        copyContainer.className = 'copy-container';
+        
+        // Create copy button
+        const copyBtn = document.createElement('button');
+        copyBtn.type = 'button';
+        copyBtn.className = 'copy-btn';
+        copyBtn.innerHTML = '📋';
+        copyBtn.title = 'Copy row data to clipboard';
+        
+        copyBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log(`Copy button clicked for ${rowId}`);
+            this.copyRowToClipboard(rowId);
+            alert('Đã lưu vào bộ nhớ tạm'); 
+        });
+        
+        copyContainer.appendChild(copyBtn);
+        
+        return copyContainer;
+    }
+    
+    async copyRowToClipboard(rowId) {
+        const row = this.rows.find(r => r.id === rowId);
+        if (!row) {
+            console.error('Row not found for copy operation');
+            return;
+        }
+        
+        // Build the formatted string
+        const formattedData = row.columns
+            .map((column, index) => {
+                const name = this.getCurrentInputValue(rowId, index) || column.name || `Player ${index + 1}`;
+                return `${name}: ${column.score}`;
+            })
+            .join(', ');
+        
+        try {
+            await navigator.clipboard.writeText(formattedData);
+            console.log('Row data copied to clipboard:', formattedData);
+            
+            // Show visual feedback
+            this.showCopyFeedback(rowId);
+        } catch (err) {
+            console.error('Failed to copy to clipboard:', err);
+            // Fallback for older browsers
+            this.fallbackCopyToClipboard(formattedData);
+        }
+    }
+    
+    showCopyFeedback(rowId) {
+        const copyBtn = document.querySelector(`#${rowId} .copy-btn`);
+        if (copyBtn) {
+            const originalText = copyBtn.innerHTML;
+            copyBtn.innerHTML = '✓';
+            copyBtn.style.backgroundColor = 'var(--color-success)';
+            copyBtn.style.color = 'var(--color-btn-primary-text)';
+            
+            setTimeout(() => {
+                copyBtn.innerHTML = originalText;
+                copyBtn.style.backgroundColor = '';
+                copyBtn.style.color = '';
+            }, 1000);
+        }
+    }
+    
+    fallbackCopyToClipboard(text) {
+        // Create a temporary textarea element
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-999999px';
+        textArea.style.top = '-999999px';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        
+        try {
+            document.execCommand('copy');
+            console.log('Fallback copy successful');
+        } catch (err) {
+            console.error('Fallback copy failed:', err);
+        }
+        
+        document.body.removeChild(textArea);
     }
     
     createColumn(rowId, columnIndex, columnData) {

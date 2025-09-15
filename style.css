@@ -1113,6 +1113,12 @@ select.form-control {
         height: 36px;
         font-size: var(--font-size-base);
     }
+    
+    .copy-btn {
+        width: 36px;
+        height: 36px;
+        font-size: var(--font-size-base);
+    }
 }
 
 @media (max-width: 768px) {
@@ -1157,6 +1163,12 @@ select.form-control {
     }
     
     .remove-row-btn {
+        width: 32px;
+        height: 32px;
+        font-size: var(--font-size-sm);
+    }
+    
+    .copy-btn {
         width: 32px;
         height: 32px;
         font-size: var(--font-size-sm);
@@ -1242,4 +1254,42 @@ select.form-control {
 
 .sum-display.updated {
     animation: sumPulse var(--duration-normal) var(--ease-standard);
+}
+
+.copy-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: var(--space-8);
+}
+
+.copy-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-border);
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-lg);
+    transition: all var(--duration-fast) var(--ease-standard);
+    flex-shrink: 0;
+}
+
+.copy-btn:hover {
+    background-color: var(--color-secondary);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+}
+
+.copy-btn:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+}
+
+.copy-btn:active {
+    transform: scale(0.95);
 }
