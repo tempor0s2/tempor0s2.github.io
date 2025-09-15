@@ -1,0 +1,1245 @@
+:root {
+  /* Gruvbox Light Primitive Color Tokens */
+  --color-white: rgba(255, 255, 255, 1);
+  --color-black: rgba(0, 0, 0, 1);
+  
+  /* Gruvbox Light Background Colors */
+  --color-bg0-hard: rgba(249, 245, 215, 1);     /* #f9f5d7 */
+  --color-bg0: rgba(251, 247, 218, 1);          /* #fbf1c7 */
+  --color-bg0-soft: rgba(253, 249, 220, 1);     /* #f3f1c3 */
+  --color-bg1: rgba(235, 219, 178, 1);          /* #ebdbb2 */
+  --color-bg2: rgba(213, 196, 161, 1);          /* #d5c4a1 */
+  --color-bg3: rgba(189, 174, 147, 1);          /* #bdae93 */
+  --color-bg4: rgba(168, 153, 132, 1);          /* #a89984 */
+  
+  /* Gruvbox Light Foreground Colors */
+  --color-fg0: rgba(40, 40, 40, 1);             /* #282828 */
+  --color-fg1: rgba(60, 56, 54, 1);             /* #3c3836 */
+  --color-fg2: rgba(80, 73, 69, 1);             /* #504945 */
+  --color-fg3: rgba(102, 92, 84, 1);            /* #665c54 */
+  --color-fg4: rgba(124, 111, 100, 1);          /* #7c6f64 */
+  
+  /* Gruvbox Colors */
+  --color-red: rgba(204, 36, 29, 1);            /* #cc241d */
+  --color-green: rgba(152, 151, 26, 1);         /* #98971a */
+  --color-yellow: rgba(215, 153, 33, 1);        /* #d79921 */
+  --color-blue: rgba(69, 133, 136, 1);          /* #458588 */
+  --color-purple: rgba(177, 98, 134, 1);        /* #b16286 */
+  --color-aqua: rgba(104, 157, 106, 1);         /* #689d6a */
+  --color-orange: rgba(214, 93, 14, 1);         /* #d65d0e */
+  
+  /* Bright variants */
+  --color-red-bright: rgba(251, 73, 52, 1);     /* #fb4934 */
+  --color-green-bright: rgba(184, 187, 38, 1);  /* #b8bb26 */
+  --color-yellow-bright: rgba(250, 189, 47, 1); /* #fabd2f */
+  --color-blue-bright: rgba(131, 165, 152, 1);  /* #83a598 */
+  --color-purple-bright: rgba(211, 134, 155, 1); /* #d3869b */
+  --color-aqua-bright: rgba(142, 192, 124, 1);  /* #8ec07c */
+  --color-orange-bright: rgba(254, 128, 25, 1); /* #fe8019 */
+
+  /* RGB versions for opacity control */
+  --color-bg1-rgb: 235, 219, 178;
+  --color-fg0-rgb: 40, 40, 40;
+  --color-fg1-rgb: 60, 56, 54;
+  --color-blue-rgb: 69, 133, 136;
+  --color-red-rgb: 204, 36, 29;
+  --color-red-bright-rgb: 251, 73, 52;
+  --color-orange-rgb: 214, 93, 14;
+  --color-orange-bright-rgb: 254, 128, 25;
+  --color-green-rgb: 152, 151, 26;
+  --color-yellow-rgb: 215, 153, 33;
+
+  /* Background color tokens (Light Mode - Gruvbox) */
+  --color-bg-1: rgba(69, 133, 136, 0.12);   /* Blue */
+  --color-bg-2: rgba(215, 153, 33, 0.12);   /* Yellow */
+  --color-bg-3: rgba(152, 151, 26, 0.12);   /* Green */
+  --color-bg-4: rgba(204, 36, 29, 0.12);    /* Red */
+  --color-bg-5: rgba(177, 98, 134, 0.12);   /* Purple */
+  --color-bg-6: rgba(214, 93, 14, 0.12);    /* Orange */
+  --color-bg-7: rgba(177, 98, 134, 0.15);   /* Purple variant */
+  --color-bg-8: rgba(104, 157, 106, 0.12);  /* Aqua */
+
+  /* Semantic Color Tokens (Light Mode - Gruvbox) */
+  --color-background: var(--color-bg0);
+  --color-surface: var(--color-bg0-soft);
+  --color-text: var(--color-fg0);
+  --color-text-secondary: var(--color-fg2);
+  --color-primary: var(--color-blue);
+  --color-primary-hover: var(--color-blue-bright);
+  --color-primary-active: rgba(var(--color-blue-rgb), 0.8);
+  --color-secondary: rgba(var(--color-bg1-rgb), 0.6);
+  --color-secondary-hover: rgba(var(--color-bg1-rgb), 0.8);
+  --color-secondary-active: var(--color-bg1);
+  --color-border: rgba(var(--color-fg1-rgb), 0.3);
+  --color-btn-primary-text: var(--color-bg0);
+  --color-card-border: rgba(var(--color-fg1-rgb), 0.2);
+  --color-card-border-inner: rgba(var(--color-fg1-rgb), 0.15);
+  --color-error: var(--color-red);
+  --color-success: var(--color-green);
+  --color-warning: var(--color-orange);
+  --color-info: var(--color-blue);
+  --color-focus-ring: rgba(var(--color-blue-rgb), 0.4);
+  --color-select-caret: rgba(var(--color-fg0-rgb), 0.8);
+
+  /* Common style patterns */
+  --focus-ring: 0 0 0 3px var(--color-focus-ring);
+  --focus-outline: 2px solid var(--color-primary);
+  --status-bg-opacity: 0.15;
+  --status-border-opacity: 0.25;
+  --select-caret-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23282828' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  --select-caret-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23ebdbb2' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+
+  /* RGB versions for opacity control */
+  --color-success-rgb: var(--color-green-rgb);
+  --color-error-rgb: var(--color-red-rgb);
+  --color-warning-rgb: var(--color-orange-rgb);
+  --color-info-rgb: var(--color-blue-rgb);
+
+  /* Typography */
+  --font-family-base: "FKGroteskNeue", "Geist", "Inter", -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-family-mono: "Berkeley Mono", ui-monospace, SFMono-Regular, Menlo,
+    Monaco, Consolas, monospace;
+  --font-size-xs: 11px;
+  --font-size-sm: 12px;
+  --font-size-base: 14px;
+  --font-size-md: 14px;
+  --font-size-lg: 16px;
+  --font-size-xl: 18px;
+  --font-size-2xl: 20px;
+  --font-size-3xl: 24px;
+  --font-size-4xl: 30px;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 550;
+  --font-weight-bold: 600;
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --letter-spacing-tight: -0.01em;
+
+  /* Spacing */
+  --space-0: 0;
+  --space-1: 1px;
+  --space-2: 2px;
+  --space-4: 4px;
+  --space-6: 6px;
+  --space-8: 8px;
+  --space-10: 10px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-base: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04),
+    0 2px 4px -1px rgba(0, 0, 0, 0.02);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04),
+    0 4px 6px -2px rgba(0, 0, 0, 0.02);
+  --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.03);
+
+  /* Animation */
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Layout */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+}
+
+/* Dark mode colors - Gruvbox Dark */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Gruvbox Dark Background Colors */
+    --color-bg0-hard: rgba(29, 32, 33, 1);        /* #1d2021 */
+    --color-bg0: rgba(40, 40, 40, 1);             /* #282828 */
+    --color-bg0-soft: rgba(50, 48, 47, 1);        /* #32302f */
+    --color-bg1: rgba(60, 56, 54, 1);             /* #3c3836 */
+    --color-bg2: rgba(80, 73, 69, 1);             /* #504945 */
+    --color-bg3: rgba(102, 92, 84, 1);            /* #665c54 */
+    --color-bg4: rgba(124, 111, 100, 1);          /* #7c6f64 */
+    
+    /* Gruvbox Dark Foreground Colors */
+    --color-fg0: rgba(251, 241, 199, 1);          /* #fbf1c7 */
+    --color-fg1: rgba(235, 219, 178, 1);          /* #ebdbb2 */
+    --color-fg2: rgba(213, 196, 161, 1);          /* #d5c4a1 */
+    --color-fg3: rgba(189, 174, 147, 1);          /* #bdae93 */
+    --color-fg4: rgba(168, 153, 132, 1);          /* #a89984 */
+
+    /* RGB versions for opacity control (Dark Mode) */
+    --color-bg1-rgb: 60, 56, 54;
+    --color-fg0-rgb: 251, 241, 199;
+    --color-fg1-rgb: 235, 219, 178;
+    --color-blue-bright-rgb: 131, 165, 152;
+    --color-green-bright-rgb: 184, 187, 38;
+    --color-red-bright-rgb: 251, 73, 52;
+    --color-orange-bright-rgb: 254, 128, 25;
+
+    /* Background color tokens (Dark Mode - Gruvbox) */
+    --color-bg-1: rgba(131, 165, 152, 0.15);  /* Blue bright */
+    --color-bg-2: rgba(250, 189, 47, 0.15);   /* Yellow bright */
+    --color-bg-3: rgba(184, 187, 38, 0.15);   /* Green bright */
+    --color-bg-4: rgba(251, 73, 52, 0.15);    /* Red bright */
+    --color-bg-5: rgba(211, 134, 155, 0.15);  /* Purple bright */
+    --color-bg-6: rgba(254, 128, 25, 0.15);   /* Orange bright */
+    --color-bg-7: rgba(211, 134, 155, 0.18);  /* Purple bright variant */
+    --color-bg-8: rgba(142, 192, 124, 0.15);  /* Aqua bright */
+
+    /* Semantic Color Tokens (Dark Mode - Gruvbox) */
+    --color-background: var(--color-bg0);
+    --color-surface: var(--color-bg0-soft);
+    --color-text: var(--color-fg0);
+    --color-text-secondary: var(--color-fg2);
+    --color-primary: var(--color-blue-bright);
+    --color-primary-hover: rgba(var(--color-blue-bright-rgb), 0.8);
+    --color-primary-active: var(--color-blue);
+    --color-secondary: rgba(var(--color-bg1-rgb), 0.6);
+    --color-secondary-hover: rgba(var(--color-bg1-rgb), 0.8);
+    --color-secondary-active: var(--color-bg1);
+    --color-border: rgba(var(--color-fg1-rgb), 0.3);
+    --color-error: var(--color-red-bright);
+    --color-success: var(--color-green-bright);
+    --color-warning: var(--color-orange-bright);
+    --color-info: var(--color-blue-bright);
+    --color-focus-ring: rgba(var(--color-blue-bright-rgb), 0.4);
+    --color-btn-primary-text: var(--color-bg0);
+    --color-card-border: rgba(var(--color-fg1-rgb), 0.2);
+    --color-card-border-inner: rgba(var(--color-fg1-rgb), 0.15);
+    --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+    --button-border-secondary: rgba(var(--color-fg1-rgb), 0.2);
+    --color-border-secondary: rgba(var(--color-fg1-rgb), 0.2);
+    --color-select-caret: rgba(var(--color-fg0-rgb), 0.8);
+
+    /* Common style patterns - updated for dark mode */
+    --focus-ring: 0 0 0 3px var(--color-focus-ring);
+    --focus-outline: 2px solid var(--color-primary);
+    --status-bg-opacity: 0.15;
+    --status-border-opacity: 0.25;
+    --select-caret-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23282828' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    --select-caret-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23ebdbb2' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+
+    /* RGB versions for dark mode */
+    --color-success-rgb: var(--color-green-bright-rgb);
+    --color-error-rgb: var(--color-red-bright-rgb);
+    --color-warning-rgb: var(--color-orange-bright-rgb);
+    --color-info-rgb: var(--color-blue-bright-rgb);
+  }
+}
+
+/* Data attribute for manual theme switching - Gruvbox Dark */
+[data-color-scheme="dark"] {
+  /* Gruvbox Dark Background Colors */
+  --color-bg0-hard: rgba(29, 32, 33, 1);        /* #1d2021 */
+  --color-bg0: rgba(40, 40, 40, 1);             /* #282828 */
+  --color-bg0-soft: rgba(50, 48, 47, 1);        /* #32302f */
+  --color-bg1: rgba(60, 56, 54, 1);             /* #3c3836 */
+  --color-bg2: rgba(80, 73, 69, 1);             /* #504945 */
+  --color-bg3: rgba(102, 92, 84, 1);            /* #665c54 */
+  --color-bg4: rgba(124, 111, 100, 1);          /* #7c6f64 */
+  
+  /* Gruvbox Dark Foreground Colors */
+  --color-fg0: rgba(251, 241, 199, 1);          /* #fbf1c7 */
+  --color-fg1: rgba(235, 219, 178, 1);          /* #ebdbb2 */
+  --color-fg2: rgba(213, 196, 161, 1);          /* #d5c4a1 */
+  --color-fg3: rgba(189, 174, 147, 1);          /* #bdae93 */
+  --color-fg4: rgba(168, 153, 132, 1);          /* #a89984 */
+
+  /* RGB versions for opacity control (dark mode) */
+  --color-bg1-rgb: 60, 56, 54;
+  --color-fg0-rgb: 251, 241, 199;
+  --color-fg1-rgb: 235, 219, 178;
+  --color-blue-bright-rgb: 131, 165, 152;
+  --color-green-bright-rgb: 184, 187, 38;
+  --color-red-bright-rgb: 251, 73, 52;
+  --color-orange-bright-rgb: 254, 128, 25;
+
+  /* Colorful background palette - Dark Mode - Gruvbox */
+  --color-bg-1: rgba(131, 165, 152, 0.15);  /* Blue bright */
+  --color-bg-2: rgba(250, 189, 47, 0.15);   /* Yellow bright */
+  --color-bg-3: rgba(184, 187, 38, 0.15);   /* Green bright */
+  --color-bg-4: rgba(251, 73, 52, 0.15);    /* Red bright */
+  --color-bg-5: rgba(211, 134, 155, 0.15);  /* Purple bright */
+  --color-bg-6: rgba(254, 128, 25, 0.15);   /* Orange bright */
+  --color-bg-7: rgba(211, 134, 155, 0.18);  /* Purple bright variant */
+  --color-bg-8: rgba(142, 192, 124, 0.15);  /* Aqua bright */
+
+  /* Semantic Color Tokens (Dark Mode - Gruvbox) */
+  --color-background: var(--color-bg0);
+  --color-surface: var(--color-bg0-soft);
+  --color-text: var(--color-fg0);
+  --color-text-secondary: var(--color-fg2);
+  --color-primary: var(--color-blue-bright);
+  --color-primary-hover: rgba(var(--color-blue-bright-rgb), 0.8);
+  --color-primary-active: var(--color-blue);
+  --color-secondary: rgba(var(--color-bg1-rgb), 0.6);
+  --color-secondary-hover: rgba(var(--color-bg1-rgb), 0.8);
+  --color-secondary-active: var(--color-bg1);
+  --color-border: rgba(var(--color-fg1-rgb), 0.3);
+  --color-error: var(--color-red-bright);
+  --color-success: var(--color-green-bright);
+  --color-warning: var(--color-orange-bright);
+  --color-info: var(--color-blue-bright);
+  --color-focus-ring: rgba(var(--color-blue-bright-rgb), 0.4);
+  --color-btn-primary-text: var(--color-bg0);
+  --color-card-border: rgba(var(--color-fg1-rgb), 0.15);
+  --color-card-border-inner: rgba(var(--color-fg1-rgb), 0.15);
+  --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  --color-border-secondary: rgba(var(--color-fg1-rgb), 0.2);
+  --color-select-caret: rgba(var(--color-fg0-rgb), 0.8);
+
+  /* Common style patterns - updated for dark mode */
+  --focus-ring: 0 0 0 3px var(--color-focus-ring);
+  --focus-outline: 2px solid var(--color-primary);
+  --status-bg-opacity: 0.15;
+  --status-border-opacity: 0.25;
+  --select-caret-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23282828' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  --select-caret-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23ebdbb2' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+
+  /* RGB versions for dark mode */
+  --color-success-rgb: var(--color-green-bright-rgb);
+  --color-error-rgb: var(--color-red-bright-rgb);
+  --color-warning-rgb: var(--color-orange-bright-rgb);
+  --color-info-rgb: var(--color-blue-bright-rgb);
+}
+
+[data-color-scheme="light"] {
+  /* Gruvbox Light Background Colors */
+  --color-bg0-hard: rgba(249, 245, 215, 1);     /* #f9f5d7 */
+  --color-bg0: rgba(251, 247, 218, 1);          /* #fbf1c7 */
+  --color-bg0-soft: rgba(253, 249, 220, 1);     /* #f3f1c3 */
+  --color-bg1: rgba(235, 219, 178, 1);          /* #ebdbb2 */
+  --color-bg2: rgba(213, 196, 161, 1);          /* #d5c4a1 */
+  --color-bg3: rgba(189, 174, 147, 1);          /* #bdae93 */
+  --color-bg4: rgba(168, 153, 132, 1);          /* #a89984 */
+  
+  /* Gruvbox Light Foreground Colors */
+  --color-fg0: rgba(40, 40, 40, 1);             /* #282828 */
+  --color-fg1: rgba(60, 56, 54, 1);             /* #3c3836 */
+  --color-fg2: rgba(80, 73, 69, 1);             /* #504945 */
+  --color-fg3: rgba(102, 92, 84, 1);            /* #665c54 */
+  --color-fg4: rgba(124, 111, 100, 1);          /* #7c6f64 */
+
+  /* RGB versions for opacity control (light mode) */
+  --color-bg1-rgb: 235, 219, 178;
+  --color-fg0-rgb: 40, 40, 40;
+  --color-fg1-rgb: 60, 56, 54;
+  --color-blue-rgb: 69, 133, 136;
+  --color-green-rgb: 152, 151, 26;
+  --color-red-rgb: 204, 36, 29;
+  --color-orange-rgb: 214, 93, 14;
+
+  /* Semantic Color Tokens (Light Mode - Gruvbox) */
+  --color-background: var(--color-bg0);
+  --color-surface: var(--color-bg0-soft);
+  --color-text: var(--color-fg0);
+  --color-text-secondary: var(--color-fg2);
+  --color-primary: var(--color-blue);
+  --color-primary-hover: var(--color-blue-bright);
+  --color-primary-active: rgba(var(--color-blue-rgb), 0.8);
+  --color-secondary: rgba(var(--color-bg1-rgb), 0.6);
+  --color-secondary-hover: rgba(var(--color-bg1-rgb), 0.8);
+  --color-secondary-active: var(--color-bg1);
+  --color-border: rgba(var(--color-fg1-rgb), 0.3);
+  --color-btn-primary-text: var(--color-bg0);
+  --color-card-border: rgba(var(--color-fg1-rgb), 0.2);
+  --color-card-border-inner: rgba(var(--color-fg1-rgb), 0.15);
+  --color-error: var(--color-red);
+  --color-success: var(--color-green);
+  --color-warning: var(--color-orange);
+  --color-info: var(--color-blue);
+  --color-focus-ring: rgba(var(--color-blue-rgb), 0.4);
+
+  /* RGB versions for light mode */
+  --color-success-rgb: var(--color-green-rgb);
+  --color-error-rgb: var(--color-red-rgb);
+  --color-warning-rgb: var(--color-orange-rgb);
+  --color-info-rgb: var(--color-blue-rgb);
+}
+
+/* Base styles */
+html {
+  font-size: var(--font-size-base);
+  font-family: var(--font-family-base);
+  line-height: var(--line-height-normal);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  color: var(--color-text);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+h1 {
+  font-size: var(--font-size-4xl);
+}
+h2 {
+  font-size: var(--font-size-3xl);
+}
+h3 {
+  font-size: var(--font-size-2xl);
+}
+h4 {
+  font-size: var(--font-size-xl);
+}
+h5 {
+  font-size: var(--font-size-lg);
+}
+h6 {
+  font-size: var(--font-size-md);
+}
+
+p {
+  margin: 0 0 var(--space-16) 0;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+
+a:hover {
+  color: var(--color-primary-hover);
+}
+
+code,
+pre {
+  font-family: var(--font-family-mono);
+  font-size: calc(var(--font-size-base) * 0.95);
+  background-color: var(--color-secondary);
+  border-radius: var(--radius-sm);
+}
+
+code {
+  padding: var(--space-1) var(--space-4);
+}
+
+pre {
+  padding: var(--space-16);
+  margin: var(--space-16) 0;
+  overflow: auto;
+  border: 1px solid var(--color-border);
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8) var(--space-16);
+  border-radius: var(--radius-base);
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  line-height: 1.5;
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-standard);
+  border: none;
+  text-decoration: none;
+  position: relative;
+}
+
+.btn:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.btn--primary {
+  background: var(--color-primary);
+  color: var(--color-btn-primary-text);
+}
+
+.btn--primary:hover {
+  background: var(--color-primary-hover);
+}
+
+.btn--primary:active {
+  background: var(--color-primary-active);
+}
+
+.btn--secondary {
+  background: var(--color-secondary);
+  color: var(--color-text);
+}
+
+.btn--secondary:hover {
+  background: var(--color-secondary-hover);
+}
+
+.btn--secondary:active {
+  background: var(--color-secondary-active);
+}
+
+.btn--outline {
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+}
+
+.btn--outline:hover {
+  background: var(--color-secondary);
+}
+
+.btn--sm {
+  padding: var(--space-4) var(--space-12);
+  font-size: var(--font-size-sm);
+  border-radius: var(--radius-sm);
+}
+
+.btn--lg {
+  padding: var(--space-10) var(--space-20);
+  font-size: var(--font-size-lg);
+  border-radius: var(--radius-md);
+}
+
+.btn--full-width {
+  width: 100%;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Form elements */
+.form-control {
+  display: block;
+  width: 100%;
+  padding: var(--space-8) var(--space-12);
+  font-size: var(--font-size-md);
+  line-height: 1.5;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-base);
+  transition: border-color var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard);
+}
+
+textarea.form-control {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+}
+
+select.form-control {
+  padding: var(--space-8) var(--space-12);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: var(--select-caret-light);
+  background-repeat: no-repeat;
+  background-position: right var(--space-12) center;
+  background-size: 16px;
+  padding-right: var(--space-32);
+}
+
+/* Add a dark mode specific caret */
+@media (prefers-color-scheme: dark) {
+  select.form-control {
+    background-image: var(--select-caret-dark);
+  }
+}
+
+/* Also handle data-color-scheme */
+[data-color-scheme="dark"] select.form-control {
+  background-image: var(--select-caret-dark);
+}
+
+[data-color-scheme="light"] select.form-control {
+  background-image: var(--select-caret-light);
+}
+
+.form-control:focus {
+  border-color: var(--color-primary);
+  outline: var(--focus-outline);
+}
+
+.form-label {
+  display: block;
+  margin-bottom: var(--space-8);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
+}
+
+.form-group {
+  margin-bottom: var(--space-16);
+}
+
+/* Card component */
+.card {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-card-border);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: box-shadow var(--duration-normal) var(--ease-standard);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.card__body {
+  padding: var(--space-16);
+}
+
+.card__header,
+.card__footer {
+  padding: var(--space-16);
+  border-bottom: 1px solid var(--color-card-border-inner);
+}
+
+/* Status indicators - simplified with CSS variables */
+.status {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-6) var(--space-12);
+  border-radius: var(--radius-full);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
+}
+
+.status--success {
+  background-color: rgba(
+    var(--color-success-rgb, 33, 128, 141),
+    var(--status-bg-opacity)
+  );
+  color: var(--color-success);
+  border: 1px solid
+    rgba(var(--color-success-rgb, 33, 128, 141), var(--status-border-opacity));
+}
+
+.status--error {
+  background-color: rgba(
+    var(--color-error-rgb, 192, 21, 47),
+    var(--status-bg-opacity)
+  );
+  color: var(--color-error);
+  border: 1px solid
+    rgba(var(--color-error-rgb, 192, 21, 47), var(--status-border-opacity));
+}
+
+.status--warning {
+  background-color: rgba(
+    var(--color-warning-rgb, 168, 75, 47),
+    var(--status-bg-opacity)
+  );
+  color: var(--color-warning);
+  border: 1px solid
+    rgba(var(--color-warning-rgb, 168, 75, 47), var(--status-border-opacity));
+}
+
+.status--info {
+  background-color: rgba(
+    var(--color-info-rgb, 98, 108, 113),
+    var(--status-bg-opacity)
+  );
+  color: var(--color-info);
+  border: 1px solid
+    rgba(var(--color-info-rgb, 98, 108, 113), var(--status-border-opacity));
+}
+
+/* Container layout */
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: var(--space-16);
+  padding-left: var(--space-16);
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: var(--container-sm);
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: var(--container-md);
+  }
+}
+@media (min-width: 1024px) {
+  .container {
+    max-width: var(--container-lg);
+  }
+}
+@media (min-width: 1280px) {
+  .container {
+    max-width: var(--container-xl);
+  }
+}
+
+/* Utility classes */
+.flex {
+  display: flex;
+}
+.flex-col {
+  flex-direction: column;
+}
+.items-center {
+  align-items: center;
+}
+.justify-center {
+  justify-content: center;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.gap-4 {
+  gap: var(--space-4);
+}
+.gap-8 {
+  gap: var(--space-8);
+}
+.gap-16 {
+  gap: var(--space-16);
+}
+
+.m-0 {
+  margin: 0;
+}
+.mt-8 {
+  margin-top: var(--space-8);
+}
+.mb-8 {
+  margin-bottom: var(--space-8);
+}
+.mx-8 {
+  margin-left: var(--space-8);
+  margin-right: var(--space-8);
+}
+.my-8 {
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-8);
+}
+
+.p-0 {
+  padding: 0;
+}
+.py-8 {
+  padding-top: var(--space-8);
+  padding-bottom: var(--space-8);
+}
+.px-8 {
+  padding-left: var(--space-8);
+  padding-right: var(--space-8);
+}
+.py-16 {
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-16);
+}
+.px-16 {
+  padding-left: var(--space-16);
+  padding-right: var(--space-16);
+}
+
+.block {
+  display: block;
+}
+.hidden {
+  display: none;
+}
+
+/* Accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: 2px;
+}
+
+/* Dark mode specifics */
+[data-color-scheme="dark"] .btn--outline {
+  border: 1px solid var(--color-border-secondary);
+}
+
+@font-face {
+  font-family: 'FKGroteskNeue';
+  src: url('https://r2cdn.perplexity.ai/fonts/FKGroteskNeue.woff2')
+    format('woff2');
+}
+
+/* END PERPLEXITY DESIGN SYSTEM */
+/* Application-specific styles */
+
+.app-header {
+    text-align: center;
+    margin-bottom: var(--space-32);
+}
+
+.app-header h1 {
+    margin-bottom: var(--space-8);
+    color: var(--color-text);
+}
+
+.app-header p {
+    color: var(--color-text-secondary);
+    margin-bottom: 0;
+}
+
+.app-main {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 var(--space-16);
+}
+
+.grid-container {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-24);
+    width: 100%;
+}
+
+.grid-rows {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-24);
+    min-width: 0;
+}
+
+.grid-row {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-16);
+    padding: var(--space-20);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-card-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    width: 100%;
+}
+
+.grid-columns {
+    display: grid;
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    gap: var(--space-8);
+    flex: 1;
+    min-width: 0;
+}
+
+.grid-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-8);
+    min-width: 0;
+}
+
+.column-input {
+    width: 100%;
+    text-align: center;
+    font-size: var(--font-size-sm);
+    padding: var(--space-6) var(--space-4);
+    min-width: 0;
+}
+
+.score-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40px;
+    background-color: var(--color-bg-1);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-base);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+    margin: var(--space-4) 0;
+    min-width: 0;
+}
+
+.score-buttons {
+    display: flex;
+    gap: var(--space-4);
+    justify-content: center;
+}
+
+.score-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-sm);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    transition: all var(--duration-fast) var(--ease-standard);
+    flex-shrink: 0;
+}
+
+.score-btn--up {
+    background-color: var(--color-success);
+    color: var(--color-btn-primary-text);
+}
+
+.score-btn--up:hover {
+    background-color: var(--color-primary-hover);
+    transform: translateY(-1px);
+}
+
+.score-btn--down {
+    background-color: var(--color-secondary);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+}
+
+.score-btn--down:hover {
+    background-color: var(--color-secondary-hover);
+    transform: translateY(-1px);
+}
+
+.score-btn:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+}
+
+.row-sum-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-8);
+    padding-left: var(--space-16);
+    border-left: 2px solid var(--color-border);
+    min-width: 120px;
+}
+
+.sum-btn {
+    width: 80px;
+    height: 36px;
+    border-radius: var(--radius-base);
+    border: none;
+    background-color: var(--color-warning);
+    color: var(--color-btn-primary-text);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    transition: all var(--duration-fast) var(--ease-standard);
+    flex-shrink: 0;
+}
+
+.sum-btn:hover {
+    background-color: var(--color-orange-400);
+    transform: translateY(-1px);
+}
+
+.sum-btn:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+}
+
+.sum-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 44px;
+    background-color: var(--color-bg-2);
+    border: 2px solid var(--color-warning);
+    border-radius: var(--radius-base);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    margin-top: var(--space-8);
+    box-shadow: var(--shadow-sm);
+}
+
+.remove-row-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: var(--space-8);
+}
+
+.remove-row-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-error);
+    background-color: var(--color-surface);
+    color: var(--color-error);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    transition: all var(--duration-fast) var(--ease-standard);
+    flex-shrink: 0;
+}
+
+.remove-row-btn:hover {
+    background-color: var(--color-error);
+    color: var(--color-btn-primary-text);
+    transform: translateY(-1px);
+}
+
+.remove-row-btn:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+}
+
+.add-row-container {
+    display: flex;
+    align-items: flex-start;
+    padding-top: var(--space-20);
+    flex-shrink: 0;
+}
+
+.add-row-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    transition: all var(--duration-normal) var(--ease-standard);
+    box-shadow: var(--shadow-md);
+}
+
+.add-row-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.add-row-icon {
+    line-height: 1;
+}
+
+/* Responsive design - maintain 8 columns but allow horizontal scroll on smaller screens */
+@media (max-width: 1400px) {
+    .app-main {
+        padding: 0 var(--space-8);
+    }
+    
+    .grid-container {
+        gap: var(--space-16);
+    }
+    
+    .grid-row {
+        gap: var(--space-12);
+        padding: var(--space-16);
+    }
+    
+    .grid-columns {
+        gap: var(--space-6);
+        overflow-x: auto;
+        min-width: 800px; /* Ensure 8 columns are always visible */
+    }
+    
+    .row-sum-container {
+        min-width: 100px;
+        padding-left: var(--space-12);
+    }
+    
+    .sum-btn,
+    .sum-display {
+        width: 70px;
+    }
+    
+    .column-input {
+        font-size: var(--font-size-xs);
+        padding: var(--space-4) var(--space-2);
+    }
+    
+    .score-btn {
+        width: 28px;
+        height: 28px;
+        font-size: var(--font-size-base);
+    }
+    
+    .remove-row-btn {
+        width: 36px;
+        height: 36px;
+        font-size: var(--font-size-base);
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .grid-columns {
+        min-width: 800px; /* Force minimum width to maintain 8 columns */
+    }
+    
+    .row-sum-container {
+        min-width: 80px;
+        padding-left: var(--space-8);
+    }
+    
+    .sum-btn,
+    .sum-display {
+        width: 60px;
+    }
+    
+    .sum-btn {
+        height: 32px;
+        font-size: var(--font-size-sm);
+    }
+    
+    .sum-display {
+        height: 36px;
+        font-size: var(--font-size-lg);
+    }
+    
+    .score-display {
+        height: 36px;
+        font-size: var(--font-size-base);
+    }
+    
+    .add-row-btn {
+        width: 50px;
+        height: 50px;
+        font-size: var(--font-size-2xl);
+    }
+    
+    .remove-row-btn {
+        width: 32px;
+        height: 32px;
+        font-size: var(--font-size-sm);
+    }
+}
+
+/* Animation for new rows */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.grid-row.new-row {
+    animation: fadeInUp var(--duration-normal) var(--ease-standard);
+}
+
+/* Animation for removing rows */
+@keyframes fadeOutUp {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+        max-height: 200px;
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+        max-height: 0;
+        margin-bottom: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+
+.grid-row.removing {
+    animation: fadeOutUp var(--duration-normal) var(--ease-standard);
+    overflow: hidden;
+}
+
+/* Loading state for buttons */
+.score-btn:active {
+    transform: scale(0.95);
+}
+
+.sum-btn:active {
+    transform: scale(0.95);
+}
+
+.add-row-btn:active {
+    transform: translateY(0) scale(0.95);
+}
+
+.remove-row-btn:active {
+    transform: scale(0.95);
+}
+
+/* Ensure horizontal scroll container */
+.grid-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Sum display pulse effect */
+@keyframes sumPulse {
+    0% {
+        transform: scale(1);
+        box-shadow: var(--shadow-sm);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: var(--shadow-md);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: var(--shadow-sm);
+    }
+}
+
+.sum-display.updated {
+    animation: sumPulse var(--duration-normal) var(--ease-standard);
+}
