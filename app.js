@@ -35,6 +35,9 @@ class ScoreTracker {
         
         console.log('DOM elements found successfully');
         
+        // Initialize notes functionality
+        this.initializeNotes();
+        
         // Create initial row
         this.createRow(false);
         
@@ -46,6 +49,24 @@ class ScoreTracker {
         });
         
         console.log('Score Tracker initialized successfully');
+    }
+    
+    initializeNotes() {
+        const notesTextarea = document.querySelector('.notes-textarea');
+        if (!notesTextarea) return;
+        
+        // Load saved notes from localStorage
+        const savedNotes = localStorage.getItem('scoreTracker-notes');
+        if (savedNotes) {
+            notesTextarea.value = savedNotes;
+        }
+        
+        // Save notes to localStorage on input
+        notesTextarea.addEventListener('input', (e) => {
+            localStorage.setItem('scoreTracker-notes', e.target.value);
+        });
+        
+        console.log('Notes functionality initialized');
     }
     
     createRow(copyNamesAndScores = false) {
