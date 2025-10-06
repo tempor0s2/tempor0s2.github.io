@@ -151,37 +151,27 @@ class ScoreTracker {
         // Add row sum container
         const sumContainer = this.createRowSumContainer(rowData.id, rowData.sum);
         rowElement.appendChild(sumContainer);
-        
+
         // Add copy button
         const copyContainer = this.createCopyContainer(rowData.id);
         rowElement.appendChild(copyContainer);
-        
+
+        // Create controls container for minus-all and remove buttons
+        const controlsContainer = document.createElement('div');
+        controlsContainer.className = 'row-controls';
+
         // Add minus all button
         const minusAllContainer = this.createMinusAllContainer(rowData.id);
-        rowElement.appendChild(minusAllContainer);
-        
-        // Add remove button for non-first rows
+        controlsContainer.appendChild(minusAllContainer);
+
+        // Add remove button (if not the first row) - below minus-all button
         if (this.rows.length > 1) {
-            const removeContainer = document.createElement('div');
-            removeContainer.className = 'remove-row-container';
-            
-            const removeBtn = document.createElement('button');
-            removeBtn.type = 'button';
-            removeBtn.className = 'remove-row-btn';
-            removeBtn.innerHTML = '✕';
-            removeBtn.title = 'Remove this row';
-            
-            removeBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                console.log(`Remove button clicked for ${rowData.id}`);
-                this.removeRow(rowData.id);
-            });
-            
-            removeContainer.appendChild(removeBtn);
-            rowElement.appendChild(removeContainer);
+            const removeContainer = this.createRemoveContainer(rowData.id);
+            controlsContainer.appendChild(removeContainer);
         }
-        
+
+        rowElement.appendChild(controlsContainer);
+
         this.gridRowsContainer.appendChild(rowElement);
         
         // Remove animation class after animation completes
@@ -195,6 +185,8 @@ class ScoreTracker {
         
         console.log('Row rendered successfully:', rowData.id);
     }
+    
+
     
     createRowSumContainer(rowId, initialSum) {
         const sumContainer = document.createElement('div');
@@ -242,7 +234,6 @@ class ScoreTracker {
             e.stopPropagation();
             console.log(`Copy button clicked for ${rowId}`);
             this.copyRowToClipboard(rowId);
-            alert('Đã lưu vào bộ nhớ tạm'); 
         });
         
         copyContainer.appendChild(copyBtn);
@@ -275,6 +266,8 @@ class ScoreTracker {
             console.error('Failed to copy to clipboard:', err);
             // Fallback for older browsers
             this.fallbackCopyToClipboard(formattedData);
+            // Show feedback even for fallback
+            this.showCopyFeedback(rowId);
         }
     }
     
@@ -336,6 +329,29 @@ class ScoreTracker {
         minusAllContainer.appendChild(minusAllBtn);
         
         return minusAllContainer;
+    }
+
+    createRemoveContainer(rowId) {
+        const removeContainer = document.createElement('div');
+        removeContainer.className = 'remove-container';
+        
+        // Create remove button
+        const removeBtn = document.createElement('button');
+        removeBtn.type = 'button';
+        removeBtn.className = 'remove-row-btn';
+        removeBtn.innerHTML = '✕';
+        removeBtn.title = 'Remove this row';
+        
+        removeBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log(`Remove button clicked for ${rowId}`);
+            this.removeRow(rowId);
+        });
+        
+        removeContainer.appendChild(removeBtn);
+        
+        return removeContainer;
     }
     
     decreaseAllScores(rowId) {
@@ -520,6 +536,9 @@ class ScoreTracker {
             if (rowElement.parentNode) {
                 rowElement.remove();
             }
+            
+            // Update remove buttons
+            this.updateRemoveButtons();
             
             console.log(`Row ${rowId} removed successfully`);
         }, 250);

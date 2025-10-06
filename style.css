@@ -885,6 +885,17 @@ select.form-control {
     flex: 1;
 }
 
+
+
+.grid-header {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-24);
+    width: 100%;
+}
+
+
+
 .grid-rows {
     flex: 1;
     display: flex;
@@ -1045,11 +1056,19 @@ select.form-control {
     box-shadow: var(--shadow-sm);
 }
 
+.row-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+    padding-left: var(--space-16);
+    border-left: 2px solid var(--color-border);
+}
+
 .remove-row-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-left: var(--space-8);
 }
 
 .remove-row-btn {
@@ -1085,6 +1104,8 @@ select.form-control {
     align-items: flex-start;
     padding-top: var(--space-20);
     flex-shrink: 0;
+    width: 60px;
+    justify-content: center;
 }
 
 .add-row-btn {
@@ -1190,6 +1211,11 @@ select.form-control {
         min-height: 120px;
     }
     
+    .row-controls {
+        gap: var(--space-4);
+        padding-left: var(--space-8);
+    }
+    
     .grid-container {
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
@@ -1228,6 +1254,15 @@ select.form-control {
         width: 50px;
         height: 50px;
         font-size: var(--font-size-2xl);
+    }
+    
+    .remove-column {
+        width: 50px;
+    }
+    
+    .remove-button-slot {
+        width: 50px;
+        height: 70px;
     }
     
     .remove-row-btn {
@@ -1334,7 +1369,6 @@ select.form-control {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-left: var(--space-8);
 }
 
 .copy-btn {
@@ -1372,7 +1406,6 @@ select.form-control {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-left: var(--space-8);
 }
 
 .minus-all-btn {
